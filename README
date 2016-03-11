@@ -1,0 +1,2 @@
+to compile with debugger:  gcc -g myprog.c -o myprog
+
