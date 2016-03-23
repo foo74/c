@@ -3,8 +3,11 @@
  * they are on the architecture where the program is run and compiled.
  * by Foo74, March 22, 2016
  ************************************************************************/
+
+/* Include the Standard IO library for printing to the screen. */
 #include <stdio.h>
 
+/* Our main function. */
 int main()
 {
 
@@ -42,8 +45,8 @@ int main()
    printf("\n\n********************************************************************\n");
    printf("In addition, there are two qualifiers, short and long. These can\n");
    printf("be both be applied to int and long can be applied to double.\n");
-   printf("short - Half the size of an int. If int is 4 bytes, short int is 2.\n");
-   printf("long - Twice the size of an int. If int is 4 bytes, long int is 8.\n");
+   printf("short - Half the size of an int.\n");
+   printf("long - Twice the size of an int or double.\n");
    printf("*********************************************************************\n\n");
    short int e;
    long int f;
