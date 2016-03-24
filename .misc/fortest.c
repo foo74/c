@@ -2,14 +2,13 @@
 
 int main()
 {
-   int i, a;
-   a = 0;
+   int i;
 
-   printf("a=%d\n", a);
-   printf("a=%d\n", a++);
-   printf("a=%d\n", a);
+   for(i=0;i<5;i++)
+      printf("in for, i=%d\n", i);
 
+   for(i=0;i<5;++i)
+      printf("in for, i=%d\n", i);
 
-   /*for (i = 0; i < 5; ++i)*/
    return 0;
 }
