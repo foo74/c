@@ -1,11 +1,17 @@
 /****************************************************
-* Exercise x.xx from the K&R book.
-* by Foo74 -- Date xx, xxxx
+* Exercise 02.01 from the K&R book.
+* by Foo74 -- April 12, 2016
+* A program to show the max and min integer values
+* for signed and unsigned variable types. For this
+* program we will only outline char and int. We 
+* will use the 'easy' way for char and the 'hard'
+* way for int.
 *****************************************************/
 
-/* Include the standard io library and  constant definitions. */
+/* Include the standard io library and limit definitions.
+   We can find all these limits in /usr/include/limits.h */
 #include <stdio.h>
-#define MAXLINE 1000
+#include <limits.h>
 
 /* Declare functions:
  * 
@@ -17,21 +23,25 @@ void myfunc(char [], char []);
 int main()
 {
    /* Declare local variables to the main function. */
-   int myint;
-   char myline[MAXLINE];
+   int an_int;
+   unsigned int an_unsigned_int;
 
    /* Init variables. */
-   max = 0;
+   an_int = an_unsigned_int = 0x0;
 
    /* Print some instructions for our users. */
-   printf("\nType in some lines, I will show you the longest. Enter a '$' character to end.\n\n");
+   printf("\nThese are the ranges for this computer:\n\n");
 
+   printf("max for char is: %d\n", CHAR_MAX);
+   printf("min for char is: %d\n", CHAR_MIN);
+   printf("max for unsigned char is: %u\n\n", UCHAR_MAX);
 
-   /* code goes here
-    *
-    *
-    */
-
+   an_int = 0b01111111111111111111111111111111;
+   printf("max for int is: %d\n", an_int);
+   an_int = 0b10000000000000000000000000000000;
+   printf("min for int is: %d\n", an_int);
+   an_unsigned_int = 0b11111111111111111111111111111111;
+   printf("max for unsigned int is: %u\n", an_unsigned_int);
 
    /* Be a good main function and return 0 because all went fine. */
    return 0;
@@ -40,6 +50,7 @@ int main()
 
 /* Our functions are defined below here. We could also put them 
  * in their own files and link them together or #include them.
+ */
 
 /* Function to copy one array to another.
  * Note that we need to name the args here because C passes

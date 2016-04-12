@@ -2,3 +2,8 @@ My project to document all of the exercises in the K&R C Programming book. Oh, j
 
 To compile with debugger and all warnings/errors:  gcc myprog.c Wall -g -o myprog
 
+In general I try to include a Makefile in each area. So you should just be able to do:
+make
+make run
+make clean
+
