@@ -1,3 +1,8 @@
+/****************************************************
+* Exercise 02.02 from the K&R book.
+* by Foo74 -- April 13, 2016
+* A program to show how && and || work.
+*****************************************************/
 #include <stdio.h>
 
 #define lim 100
