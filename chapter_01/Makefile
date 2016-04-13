@@ -1,6 +1,8 @@
-ex1: ex_02-01.c
-	gcc ex_02-01.c -Wall -g -o ex_02-01
+all: ex13
+
+ex13: ex_01-13.c
+	gcc ex_01-13.c -Wall -g -o ex_01-13
 run:
-	./ex_02-01
+	./ex_01-13
 clean:
-	rm ex_02-01
+	rm ex_01-13
