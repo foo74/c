@@ -7,3 +7,11 @@ make
 make run
 make clean
 
+
+Note that to flush the stdin you have to press control-d twice if you have entered
+some text. This is because pressing control-d once just flushes the stdin buffer.
+When you press control-d twice it flushes the buffer and then the second one
+sends EOF. You can test this by not typing anything into stdin and then press
+control-d which will send EOF. Alternatively, you can type some text and then
+hit the return key to flush the stdin buffer which also sends the '\n' character.
+Then when you hit control-d it sends EOF because the stdin buffer is empty.
