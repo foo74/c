@@ -29,8 +29,12 @@ int main()
 
    a[0] = '0';
    a[1] = 'X';
-   a[2] = '5';
-   a[3] = '5';
+   a[2] = 'f';
+   a[3] = 'f';
+   a[4] = 'f';
+   a[5] = 'f';
+   a[6] = 'f';
+   a[7] = 'f';
 
    /* Print some instructions for our users. */
    printf("\nConvert a hex string to integer (8 bits max).\n\n");
@@ -88,11 +92,23 @@ unsigned int htoi(char s[])
          }
          else if (s[i] >= 'A' && s[i] <= 'F')
          {
-            total = total + s[i] - 55;
+            if (power > 0)
+               total = total + ((s[i] - 55) * pow(16, power++));
+            else
+            {
+               total = total + (s[i] - 55);
+               power++;
+            }
          }
          else if (s[i] >= 'a' && s[i] <= 'f')
          {
-            total = total + s[i] - 87;
+            if (power > 0)
+               total = total + ((s[i] - 87) * pow(16, power++));
+            else
+            {
+               total = total + (s[i] - 87);
+               power++;
+            }
          }
       }
    }
