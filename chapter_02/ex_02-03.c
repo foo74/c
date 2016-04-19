@@ -4,8 +4,9 @@
 * A program that converts a string of hex to integer.
 *****************************************************/
 
-/* Include the standard io library. */
+/* Include the standard io library and math for pow(). */
 #include <stdio.h>
+#include <math.h>
 
 #define MAX_STRING 8
 
@@ -26,7 +27,10 @@ int main()
    for (i=0; i<MAX_STRING; i++)
       a[i] = 0; 
 
-   a[0] = 'F';
+   a[0] = '0';
+   a[1] = 'X';
+   a[2] = '5';
+   a[3] = '5';
 
    /* Print some instructions for our users. */
    printf("\nConvert a hex string to integer (8 bits max).\n\n");
@@ -55,23 +59,41 @@ unsigned int htoi(char s[])
 {
 /* TODO ACCOUNT FOR 0x or 0X at start */
    int i;
+   int power;
    int total;
+   int last_digit;
    i = 0;
    total = 0;
+   power = 0;
 
-   for (i=0; i<MAX_STRING && s[i] != 0; i++)
+   /* Check if starts with 0x or 0X. */
+   if (s[1] == 'x' || s[1] == 'X')
+      last_digit = 2;
+   else
+      last_digit = 0;
+
+   for (i=MAX_STRING-1; i>=last_digit; i--)
    {
-      if (s[i] >= '0' && s[i] <= '9')
+      if (s[i] != 0)
       {
-         total = total + s[i] - 48;
-      }
-      else if (s[i] >= 'A' && s[i] <= 'F')
-      {
-         total = total + s[i] - 55;
-      }
-      else if (s[i] >= 'a' && s[i] <= 'f')
-      {
-         total = total + s[i] - 87;
+         if (s[i] >= '0' && s[i] <= '9')
+         {
+            if (power > 0)
+               total = total + ((s[i] - 48) * pow(16, power++));
+            else
+            {
+               total = total + (s[i] - 48);
+               power++;
+            }
+         }
+         else if (s[i] >= 'A' && s[i] <= 'F')
+         {
+            total = total + s[i] - 55;
+         }
+         else if (s[i] >= 'a' && s[i] <= 'f')
+         {
+            total = total + s[i] - 87;
+         }
       }
    }
 
