@@ -5,9 +5,8 @@
 * a string, s2, from the string s1.
 *****************************************************/
 
-/* Include the standard io library and limit definitions.*/
+/* Include the standard io library.*/
 #include <stdio.h>
-#include <stdint.h>
 
 /* Declare functions:
  * 
