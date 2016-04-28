@@ -1,4 +1,4 @@
-all: ex1 ex2 ex3 ex4 ex5
+all: ex1 ex2 ex3 ex4 ex5 ex6
 
 ex1: ex_02-01.c
 	gcc ex_02-01.c -Wall -g -o ex_02-01
@@ -10,7 +10,9 @@ ex4: ex_02-04.c
 	gcc ex_02-04.c -Wall -g -o ex_02-04
 ex5: ex_02-05.c
 	gcc ex_02-05.c -Wall -g -o ex_02-05
+ex6: ex_02-06.c
+	gcc ex_02-06.c -Wall -g -o ex_02-06
 run:
-	./ex_02-05
+	./ex_02-06
 clean:
-	rm ex_02-01 ex_02-02 ex_02-03 ex_02-04 ex_02-05
+	rm ex_02-01 ex_02-02 ex_02-03 ex_02-04 ex_02-05 ex_02-06
