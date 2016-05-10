@@ -14,7 +14,7 @@
  * easily change them. Maybe want to have as input in future
  * or args to command line.
  */
-#define X_BITS 0b10000010
+#define X_BITS 0b00000000
 #define P 2
 #define N 3
 

@@ -1,12 +1,12 @@
 /****************************************************
 * Exercise 02.07 from the K&R book.
-* by Foo74 -- May 10, 2016
+* by Ken Withee -- May 10, 2016
 * A program that shows the invert() function. The
 * invert() function is a bitwise function that takes
 * in a series of bits and inverts them.
 *****************************************************/
 
-/* Include the standard io library and standard ints.*/
+/* Include our main header file.*/
 #include "ex_02-07.h"
 
 /* The main function of our program. */
@@ -23,10 +23,10 @@ int main()
    print_binary(X_BITS);
    printf("\np: %d\nn: %d\n\n", P, N);
 
-   /* Call our setbits() function and save the result
+   /* Call our invert() function and save the result
     * in the post_x var. Remember that the second input
-    * var to setbits() is the position and the third is
-    * the number of bits. See setbits() for more details.
+    * var to invert() is the position and the third is
+    * the number of bits. See invert() for more details.
     */
    post_x = invert(X_BITS, P, N);
 
@@ -56,52 +56,48 @@ uint8_t invert(uint8_t x, uint8_t p, uint8_t n)
 {
    /* Variables to use for manipulation of bits in our function. */
    uint8_t result;
-/*
-   uint8_t y_bits;
+   uint8_t result1;
+   uint8_t result2;
    uint8_t x_mask_left;
    uint8_t x_mask_right;
    uint8_t x_mask;
-*/
+   uint8_t inverted_mask;
+   uint8_t x_inverted;
 
    /* Initialize our variables so no surprises. */
    result = 0;
-/*
-   y_bits = 0;
+   result1 = 0;
+   result2 = 0;
    x_mask_left = 0xff;
    x_mask_right = 0xff;
    x_mask = 0;
-*/
+   x_inverted = 0;
+   inverted_mask = 0;
 
    /* Get the mask for the left bits of x and also the mask for the
     * right bits of x. This is because we don't want to disturbe the
-    * bits on the left side and right side of x that we are not replacing
-    * with the n bits from the right hand side of y and at position p of
+    * bits on the left side and right side of x that we are not inverting 
+    * with the n bits starting at position p of
     * the x bits. So we need a mask for the left and right bits of x
     * from the original x input so we can put them back.
+    */
    x_mask_left = x_mask_left >> p;
    x_mask_left = ~x_mask_left;
-   x_mask_right = x_mask_right >> (8-p);
+   x_mask_right = x_mask_right >> (n+p);
    x_mask = x_mask_left | x_mask_right;
-    */
+   inverted_mask = ~x_mask;
+   x_inverted = ~x;
 
-   /* Get the y bits from the right side of y. We only want to get
-    * the n number of bits and we want all the bits to the left
-    * to just be 0's.
-   y_bits = y << (8-n);
-   y_bits = y_bits >> p;
+   /* Build our result. First get the inverted of the entire x.
+    * Then use the mask to get the bits we don't want to touch.
+    * These are the bits to the left and the right. Then get the
+    * inner bits which are inverted. Use the mask to pull from the
+    * inverted of the entire x. Then do an OR to get any 1's in
+    * both the bits we don't touch and the bits that are inverted.
     */
-
-   /* Build our result. First get the left and right bits of the 
-    * original x bits. These are the ones we are not replacing
-    * so we don't want to disturb the left and right originals.
-    * Then do an OR to get the 1's in the middle. The left and
-    * right sides of the y_bits will be zero since we did bit
-    * shifting above. So we can do an OR to get the y_bits in
-    * the middle and combine it with the result that we already 
-    * built which has the original left and right sides of x.
-   result = x_mask & x;
-   result = result | y_bits;
-    */
+   result1 = x_mask & x;
+   result2 = inverted_mask & x_inverted;
+   result = result1 | result2;
 
    /* Return the bits. */
    return result;
