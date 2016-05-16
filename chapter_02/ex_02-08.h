@@ -16,7 +16,7 @@
  * easily change them. Maybe want to have as input in future
  * or args to command line.
  */
-#define X_BITS 0b00000000
+#define X_BITS 0b00011100
 #define N 3
 
 /* Function that performs bitwise operations. It takes in x and n. 
