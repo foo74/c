@@ -51,9 +51,9 @@ int main()
 
 /* Our functions are defined below here. We could also put them 
  * in their own files and link them together or #include them.
-
-/* Function to get a new line.
  */
+
+/* Function to get a new line. */
 int mygetline(char line[])
 {
    int c, i;
@@ -98,4 +98,6 @@ int check_line(char line[])
    for (i=0; i<MAXLINE && line[i] != '\0'; i++)
       if (line[i] == ' ')
          line[i] = 't';
+
+   return 0;
 }

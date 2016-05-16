@@ -1,6 +1,6 @@
 all: kenlib
 
-kenlib: ../kenlib/print.c
-	gcc -c ../kenlib/print.c -o ../kenlib/print.o
+kenlib: print.c
+	gcc -c print.c -o print.o
 clean:
 	rm print.o

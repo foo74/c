@@ -1,8 +1,14 @@
-all: ex1
+all: datatypes
+	cd chapter_01; make
+	cd chapter_02; make
 
-ex1: ex_02-01.c
-	gcc ex_02-01.c -Wall -g -o ex_02-01
+datatypes: datatypes.c
+	gcc datatypes.c -Wall -g -o datatypes
+
 run:
-	./ex_02-01
+	./datatypes
+
 clean:
-	rm ex_02-01
+	cd chapter_01; make clean
+	cd chapter_02; make clean
+	rm datatypes
