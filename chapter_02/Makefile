@@ -1,6 +1,6 @@
-all: ex1 ex2 ex3 ex4 ex5 ex6 ex7
+all: ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8
 	cd ../kenlib; make
-	make ex7
+	make ex8
 
 ex1: ex_02-01.c
 	gcc ex_02-01.c -Wall -g -o ex_02-01
@@ -24,8 +24,12 @@ ex7: ex_02-07.c
 	gcc ex_02-07.c -Wall -g -c -o ex_02-07.o
 	gcc -o ex_02-07 ex_02-07.o ../kenlib/print.o
 
+ex8: ex_02-08.c 
+	gcc ex_02-08.c -Wall -g -c -o ex_02-08.o
+	gcc -o ex_02-08 ex_02-08.o ../kenlib/print.o
+
 run:
-	./ex_02-07
+	./ex_02-08
 
 clean:
-	rm ex_02-01 ex_02-02 ex_02-03 ex_02-04 ex_02-05 ex_02-06 ex_02-07 ex_02-07.o
+	rm ex_02-01 ex_02-02 ex_02-03 ex_02-04 ex_02-05 ex_02-06 ex_02-07 ex_02-07.o ex_02-08 ex_02-08.o
