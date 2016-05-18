@@ -1,4 +1,4 @@
-all: kenlib ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8 ex9
+all: kenlib ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8 ex9 ex10
 
 kenlib: ../kenlib/print.h ../kenlib/print.c
 	cd ../kenlib; make
@@ -33,9 +33,13 @@ ex9: ex_02-09.c
 	gcc ex_02-09.c -Wall -g -c -o ex_02-09.o
 	gcc -o ex_02-09 ex_02-09.o ../kenlib/print.o
 
+ex10: ex_02-10.c 
+	gcc ex_02-10.c -Wall -g -c -o ex_02-10.o
+	gcc -o ex_02-10 ex_02-10.o ../kenlib/print.o
+
 run:
-	./ex_02-09
+	./ex_02-10
 
 clean:
 	cd ../kenlib; make clean
-	rm ex_02-01 ex_02-02 ex_02-03 ex_02-04 ex_02-05 ex_02-06 ex_02-07 ex_02-07.o ex_02-08 ex_02-08.o ex_02-09 ex_02-09.o
+	rm ex_02-01 ex_02-02 ex_02-03 ex_02-04 ex_02-05 ex_02-06 ex_02-07 ex_02-07.o ex_02-08 ex_02-08.o ex_02-09 ex_02-09.o ex_02-10 ex_02-10.o
