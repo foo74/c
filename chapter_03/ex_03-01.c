@@ -9,46 +9,60 @@
 /* The main function of our program. */
 int main()
 {
-   int i = 0;
-   int result = 0;
-   int x = 5;
-   int v[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-   int n = 10;
+   long int i = 0;
+   long int result = 0;
+   long int x = 5;
+   long int v[MAX];
    clock_t start, end;
    double cpu_time_used;
 
+   /* Build the array with ascending integers. */
+   for (i = 0; i < MAX; i++)
+      v[i] = (long int)i;
+
+   /* Print the header info. */
    printf("\n---------------------------------------------------------");
    printf("\n- Exercise 03.01 from, The C Programming Language,      -");
    printf("\n- by Brian W. Kernighan and Dennis M. Ritchie, 2nd Ed., -");
    printf("\n- AT&T Bell Laboratories (Prentice Hall - 1988).        -");   
    printf("\n---------------------------------------------------------\n\n");
 
+   /* Print the info about this program. */
    printf("This program finds a value, x, in a sorted array, v[],\n");
    printf("with, n, elements. Array sorted in ascending order.\n\n");
-
-   printf("x = %d\n", x);
-   printf("n = %d\n\n", n);
-   for( i=0; i<n; i++)
-      printf("v[%d] = %d\n", i, v[i]); 
+   printf("x = %ld\n", x);
+   printf("n = %d\n\n", MAX);
    printf("\n\n");
 
    /* binsearch() */
+   /* Grab the clock. */
    start = clock();
-   result = binsearch(x, v, n);
-   end = clock();
-   cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-   printf("Elapsed time: %f\n", cpu_time_used);
-   if ( result != -1 )
-      printf("Integer %d found! Location is position %d in array.\n\n", x, result);
 
-   /* binsearch2() */
+   /* Run the search function. */
+   result = binsearch(x, v, MAX);
+
+   /* Grab the clock again. */
+   end = clock();
+
+   /* Subtract the end from the start to get the elapsed time.
+    * then divide by the number of clocks per second on this
+    * system to get the time in seconds.
+    */
+   cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+   /* Print out the results. */
+   printf("Elapsed time: %f\n", cpu_time_used);
+   if ( result != -1 )
+      printf("Integer %ld found! Location is position %ld in array.\n\n", x, result);
+
+   /* binsearch2() - see comments above*/
    start = clock();
-   result = binsearch2(x, v, n);
+   result = binsearch2(x, v, MAX);
    end = clock();
    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
    printf("Elapsed time: %f\n", cpu_time_used);
    if ( result != -1 )
-      printf("Integer %d found! Location is position %d in array.\n\n", x, result);
+      printf("Integer %ld found! Location is position %ld in array.\n\n", x, result);
 
    /* Be a good main function and return 0 because all went fine. */
    return 0;
@@ -60,9 +74,9 @@ int main()
  */
 
 /* See header ex_03-01.h for description. */
-int binsearch(int x, int v[], int n)
+long int binsearch(long int x, long int v[], long int n)
 {
-   int low, high, mid;
+   long int low, high, mid;
 
    low = 0;
    high = n-1;
@@ -81,9 +95,9 @@ int binsearch(int x, int v[], int n)
 }
 
 /* See header ex_03-01.h for description. */
-int binsearch2(int x, int v[], int n)
+long int binsearch2(long int x, long int v[], long int n)
 {
-   int low, high, mid;
+   long int low, high, mid;
 
    low = 0;
    high = n-1;
