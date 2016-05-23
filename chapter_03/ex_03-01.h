@@ -1,12 +1,13 @@
 /****************************************************
-* Exercise 03.01 from the K&R book.
-* by Foo74 -- May 20, 2016
-*
-* A program that... 
-*****************************************************/
+ * Exercise 03.01 from the K&R book.
+ * by Foo74 -- May 20, 2016
+ *
+ * A program that demonstrates a binary search.
+ *****************************************************/
 
-/* Include the standard io library and standard ints.*/
+/* Include the standard io library and time for measurements.*/
 #include <stdio.h>
+#include <time.h>
 /*
 #include "../kenlib/print.h"
 */
@@ -17,7 +18,14 @@
 #define X_BITS 0b11010100
  */
 
-/* Function that takes in a char, and if it is upper case, converts
- * it to lower case. If it is already lower then just returns it.
+/* Function that takes an int, an array of ints, and the
+ * number of elements in the array.
+ * x:    the int to find in the array.
+ * v[]:  the array of ints.
+ * n:    the number of elements in the array v[].
+ *
+ * The binsearch2() function uses a single test
+ * inside the while loop instead of 2 tests.
  */
-int binsearch(int, int [], int);
+int binsearch(int x, int v[], int n);
+int binsearch2(int x, int v[], int n);
