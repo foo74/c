@@ -1,6 +1,6 @@
-all: kenlib
+all: foolib
 
-kenlib: print.c
+foolib: print.c
 	gcc -c print.c -o print.o
 clean:
 	rm print.o

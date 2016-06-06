@@ -1,6 +1,6 @@
 /****************************************************
 * Exercise 02.07 from the K&R book.
-* by Ken Withee -- May 10, 2016
+* by Foo74 -- May 10, 2016
 * A program that shows the invert() function. The
 * invert() function is a bitwise function that takes
 * in a series of bits and inverts them.
