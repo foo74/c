@@ -29,7 +29,7 @@
 
 /* Include the standard io library and standard ints.*/
 #include <stdio.h>
-#include "../kenlib/print.h"
+#include "../foolib/print.h"
 
 /* Define the vars we will use to test so we can
  * easily change them. Maybe want to have as input in future
