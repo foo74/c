@@ -1,8 +1,8 @@
 /****************************************************
- * Exercise 03.02 from the K&R book.
- * by Foo74 -- May 25, 2016
+ * Exercise 03.03 from the K&R book.
+ * by Foo74 -- June 08, 2016
  *
- * A program that demonstrates a switch statement.
+ * A program that ...
  *****************************************************/
 
 /* Include the standard io library.*/
@@ -13,10 +13,7 @@
  */
 #define MAX 1024
 
-/* Function that takes two string pointers s and t. The t
- * is the destination and the s is the source. The function
- * converts newline and tabs into visible sequences \n and \t.
- * number of elements in the array.
+/* Function that ...
  * s:    the source string.
  * t:    the dest string.
  */

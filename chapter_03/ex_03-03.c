@@ -1,10 +1,10 @@
 /****************************************************
-* Exercise 03.02 from the K&R book.
-* by Foo74 -- May 25, 2016
+* Exercise 03.03 from the K&R book.
+* by Foo74 -- June 08, 2016
 *****************************************************/
 
 /* Include our main header file.*/
-#include "ex_03-02.h"
+#include "ex_03-03.h"
 
 /* The main function of our program. */
 int main()
@@ -37,7 +37,7 @@ int main()
  * in their own files and link them together or #include them.
  */
 
-/* See header ex_03-02.h for description. */
+/* See header ex_03-03.h for description. */
 void escape(char s[], char t[])
 {
    /* i is indexer, and dest_index to keep track of dest array. */
