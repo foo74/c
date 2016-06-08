@@ -41,5 +41,4 @@ run:
 	./ex_02-10
 
 clean:
-	cd ../foolib; make clean
 	rm ex_02-01 ex_02-02 ex_02-03 ex_02-04 ex_02-05 ex_02-06 ex_02-07 ex_02-07.o ex_02-08 ex_02-08.o ex_02-09 ex_02-09.o ex_02-10 ex_02-10.o

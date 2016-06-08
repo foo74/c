@@ -23,5 +23,4 @@ run:
 	./ex_03-03
 
 clean:
-	cd ../foolib; make clean
 	rm ex_03-01 ex_03-01.o ex_03-02 ex_03-02.o ex_03-03 ex_03-03.o
