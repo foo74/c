@@ -14,7 +14,7 @@
 void myfunc(char [], char []);
 
 /* The main function of our program. */
-int main()
+int main(int argc, char *argv[])
 {
    /* Declare local variables to the main function. */
    int myint;

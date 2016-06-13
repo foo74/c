@@ -7,7 +7,7 @@
 #include "ex_03-03.h"
 
 /* The main function of our program. */
-int main()
+int main(int argc, char *argv[])
 {
    char init_string[MAX] = "This is a string	with some 	tabs	and some \nnewline\n.";
    char result_string[MAX] = "";
