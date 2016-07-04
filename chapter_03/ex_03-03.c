@@ -9,7 +9,7 @@
 /* The main function of our program. */
 int main(int argc, char *argv[])
 {
-   char input_str[] = "a-z";
+   char input_str[] = "-a-zA-Ga-b-c0-9";
    char output_str[MAX];
 
    /* Print the header info. */
@@ -42,24 +42,49 @@ int main(int argc, char *argv[])
 /* See header ex_03-03.h for description. */
 void expand(char s1[], char s2[])
 {
-   int i;
-   int j;
-   int amount;
-   int place;
-   int character;
+	/* Iterators i and j, amount is the amount to expand, place
+	 * is a place holder to keep track of where we are in the
+	 * first string. Character is used to store a character.
+	 */
+   int i = 0;
+   int j = 0;
+   int amount = 0;
+   int place = 0;
+   int character = 0;
 
+	/* For each character in string s1, and as long as we
+	 * don't overflow our MAX buffer, process the character.
+	 */
    for (i=0; i<MAX && s1[i] != 0; i++)
    {
+		/* If we find a -, we need to expand. */
       if (s1[i] == '-')
       {
-         character = s1[i-1];
-         s2[i] = 'x';
-         amount = s1[i+1]-s1[i-1];
-         for (j=i; j<amount; j++)
-            s2[j] = character+j;
+			/* As long as we are not at the first or last character.
+			 * If we are then ignore since we don't know what to expand.
+			 */
+			if (i != 0 && s1[i+1] != 0)
+			{		
+				/* Find the 'from' expansion. */
+				character = s1[i-1];
+				/* Start the expansion with the 'from' char. */
+				//s2[i] = s1[i-1];
 
-         place = j;
+				/* Figure out if upper case, lower case, or integer. */
+				/* TODO */
+
+				/* Figure out how much we need to expand. */
+				amount = s1[i+1]-s1[i-1];
+				/* Loop and expand to s2. */
+				for (j=1; j<amount; j++)
+					s2[place++] = character+j;
+
+				/* Save our place in s2 so we can expand again. */
+				//place = j;
+				j = 0;
+			}
       }
+		/* If we don't find a '-' character then just copy the char. */
       else
       {
          s2[place] = s1[i];
