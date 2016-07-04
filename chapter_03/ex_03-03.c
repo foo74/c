@@ -9,8 +9,9 @@
 /* The main function of our program. */
 int main(int argc, char *argv[])
 {
+	/* Input and output string buffers. */
    char input_str[] = "-a-zA-Ga-b-c0-9";
-   char output_str[MAX];
+   char output_str[MAX] = { 0 };
 
    /* Print the header info. */
    printf("\n---------------------------------------------------------");
@@ -26,6 +27,7 @@ int main(int argc, char *argv[])
    printf("allows for letters of either case and digits\n");
    printf("and handles cases like a-b-c, a-z0-9, and -a-z.\n\n");
 
+	/* Print information about input string and result after expand() call. */
    printf("Input String is:\n%s\n\n", input_str);
    expand(input_str, output_str);
    printf("Processed String is:\n%s\n\n", output_str);
@@ -67,11 +69,6 @@ void expand(char s1[], char s2[])
 			{		
 				/* Find the 'from' expansion. */
 				character = s1[i-1];
-				/* Start the expansion with the 'from' char. */
-				//s2[i] = s1[i-1];
-
-				/* Figure out if upper case, lower case, or integer. */
-				/* TODO */
 
 				/* Figure out how much we need to expand. */
 				amount = s1[i+1]-s1[i-1];
@@ -79,18 +76,21 @@ void expand(char s1[], char s2[])
 				for (j=1; j<amount; j++)
 					s2[place++] = character+j;
 
-				/* Save our place in s2 so we can expand again. */
-				//place = j;
+				/* Reset j, just to be cleann. */
 				j = 0;
 			}
       }
 		/* If we don't find a '-' character then just copy the char. */
       else
       {
+			/* We just found a regular char, just add it to s2 and 
+			 * increase our place holder for where we are in s2. 
+			 */
          s2[place] = s1[i];
          place++;
       }
    }
 
+	/* Make sure to terminate the s2 string with a 0 'NULL'. */
    s2[place] = 0;
 }
